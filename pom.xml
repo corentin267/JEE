@@ -69,21 +69,21 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.3.2</version>
             </plugin>
-            <plugin>
-                <groupId>org.wildfly.plugins</groupId>
-                <artifactId>wildfly-maven-plugin</artifactId>
-                <version>3.0.0.Final</version>
-                <configuration>
-                    <add-user>
-                        <users>
-                            <user>
-                                <username>admin</username>
-                                <password>admin</password>
-                            </user>
-                        </users>
-                    </add-user>
-                </configuration>
-            </plugin>
+            <!--            <plugin>-->
+<!--                <groupId>org.wildfly.plugins</groupId>-->
+<!--                <artifactId>wildfly-maven-plugin</artifactId>-->
+<!--                <version>3.0.0.Final</version>-->
+<!--                <configuration>-->
+<!--                    <add-user>-->
+<!--                        <users>-->
+<!--                            <user>-->
+<!--                                <username>admin</username>-->
+<!--                                <password>admin</password>-->
+<!--                            </user>-->
+<!--                        </users>-->
+<!--                    </add-user>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
         </plugins>
     </build>
 </project>
