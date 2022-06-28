@@ -1,51 +1,42 @@
 # Project tp8/tp8
 
-Steps to run this project:
-
-1. Start your Docker daemon
-2. Execute `./buildAndRun.sh` (Linux/MacOs) or `buildAndRun.bat` (Windows)
-3. Wait until Open Liberty is up- and running (e.g. use `docker logs -f CONTAINER_ID`)
-4. Visit http://localhost:9080/resources/sample
-
+Configuration du datasource : 
+- Ajouter dans les dépendances du pom.xml:
+  <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>8.0.29</version>
+  </dependency>
+  
+- Ajouter dans les plugins du pom.xml:
+  <plugin>
+      <groupId>org.wildfly.plugins</groupId>
+      <artifactId>wildfly-maven-plugin</artifactId>
+      <version>3.0.0.Final</version>
+      <configuration>
+          <add-user>
+              <users>
+                  <user>
+                      <username>admin</username>
+                      <password>admin</password>
+                  </user>
+              </users>
+          </add-user>
+      </configuration>
+  </plugin>
+- http://localhost:9990/console/index.html
+- se connecter avec les identifiants préciser dans le pom.xml pour le plugin wildfly
+- Aller dans configuration
+- Subsystems
+- Datasources et drivers
+- jdbc drivers
+- vérifier que le driver mysql est présent
 
 Start project: 
 mvn wildfly:run
 
 # Endpoints :
-## Formula 1
-http://localhost:8080/tp8/resources/drivers
-http://localhost:8080/tp8/resources/drivers/add
-
-{
-"firstname": "Lewis",
-"lastname": "Hamilton"
-}
-http://localhost:8080/tp8/resources/drivers/update
-
-{
-"firstname": "Lewis",
-"lastname": "Hamilton"
-}
-http://localhost:8080/tp8/resources/drivers/delete/{id}
-
-## Users
-http://localhost:8080/tp8/resources/users/add
-
-{
-"username": "corentin",
-"password": "test"
-}
-
-http://localhost:8080/tp8/resources/users/login
-
-{
-"username": "corentin",
-"password": "test"
-}
--> return token
-
-http://localhost:8080/tp8/resources/users/logout
--> with token in header
+https://documenter.getpostman.com/view/7655286/UzBtm3yq
 
 #BDD
 bdd:
